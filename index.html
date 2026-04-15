@@ -27,10 +27,10 @@
 <body>
     <div class="container">
         <h1>Política de Privacidade</h1>
-        <p class="update">Última atualização: 01 de abril de 2026</p>
+        <p class="update">Última atualização: 14 de abril de 2026 (v2.0)</p>
 
         <div class="summary">
-            <p><strong>Em resumo:</strong> O Bloco Mania respeita sua privacidade. Nós não coletamos seus dados pessoais como nome, e-mail ou localização. O jogo funciona offline e seu progresso fica salvo apenas no seu celular. Exibimos anúncios para manter o jogo gratuito, e o Google (nosso parceiro de anúncios) pode coletar informações técnicas do dispositivo para esse fim. Você pode desativar anúncios personalizados a qualquer momento nas configurações do seu aparelho. Nunca vendemos seus dados.</p>
+            <p><strong>Em resumo:</strong> O Bloco Mania respeita sua privacidade. Nós não coletamos seus dados pessoais como nome, e-mail ou localização. O jogo funciona offline e seu progresso fica salvo apenas no seu celular. Exibimos anúncios para manter o jogo gratuito, e o Google (nosso parceiro de anúncios) pode coletar informações técnicas do dispositivo para esse fim. Você pode desativar anúncios personalizados a qualquer momento nas configurações do seu aparelho. Para compras no aplicativo, validamos os recibos em servidores no Brasil para prevenir fraudes. Nunca vendemos seus dados.</p>
         </div>
 
         <p>A <strong>DESENVOLVIMENTO E CONSULTORIA EM TI ENN LTDA</strong>, inscrita no CNPJ sob o nº 63.721.800/0001-11, doravante denominada "Empresa", é responsável pelo aplicativo <strong>Bloco Mania — Puzzle Game</strong> ("Aplicativo"). Esta Política de Privacidade descreve como coletamos, usamos, armazenamos e protegemos as informações dos usuários.</p>
@@ -84,6 +84,11 @@
                 <td>Dados da transação (processados exclusivamente pelo Google)</td>
                 <td>Processamento de compras no aplicativo</td>
             </tr>
+            <tr>
+                <td>Supabase (Edge Function)</td>
+                <td>purchaseToken e productId (dados efêmeros, não persistidos como dados pessoais)</td>
+                <td>Validação server-side de recibos de compra para prevenção de fraudes</td>
+            </tr>
         </table>
 
         <p>Esses serviços são operados pelo Google e estão sujeitos à <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Política de Privacidade do Google</a>.</p>
@@ -122,6 +127,7 @@
         <ul>
             <li><strong>Google AdMob e Firebase Analytics:</strong> conforme descrito na seção 1.3, para as finalidades específicas de publicidade e análise;</li>
             <li><strong>Google Play Store:</strong> para processamento de compras no aplicativo;</li>
+            <li><strong>Supabase Inc.:</strong> infraestrutura backend (Edge Functions) hospedada na região sa-east-1 (São Paulo, Brasil), utilizada exclusivamente para validação de recibos de compra. Dados transacionais são efêmeros e não persistidos. <a href="https://supabase.com/privacy" target="_blank" rel="noopener">Política de Privacidade da Supabase</a>;</li>
             <li><strong>Obrigações legais:</strong> quando exigido por lei, ordem judicial, autoridade competente ou para proteger os direitos, propriedade ou segurança da Empresa, de seus usuários ou do público.</li>
         </ul>
 
@@ -144,7 +150,10 @@
             <li><strong>Criptografia em trânsito:</strong> todas as comunicações entre o Aplicativo e serviços externos são realizadas via protocolo HTTPS (TLS/SSL), garantindo que os dados estejam criptografados durante a transmissão;</li>
             <li><strong>Minimização de dados:</strong> coletamos apenas o estritamente necessário;</li>
             <li><strong>Armazenamento local:</strong> dados de progresso do jogo ficam apenas no dispositivo do usuário;</li>
-            <li><strong>Sem servidores próprios:</strong> não mantemos servidores que armazenem dados pessoais dos usuários, reduzindo a superfície de risco.</li>
+            <li><strong>Validação server-side:</strong> recibos de compras são validados em tempo real por Edge Function hospedada no Brasil (Supabase, região São Paulo), consultando a Google Play Developer API;</li>
+            <li><strong>Integridade local:</strong> dados de compra no dispositivo são protegidos por assinatura criptográfica HMAC-SHA256;</li>
+            <li><strong>Ofuscação de código:</strong> o código do aplicativo é ofuscado via R8/ProGuard;</li>
+            <li><strong>Proteção anti-replay:</strong> cada recibo de compra é verificado quanto à unicidade para impedir reutilização fraudulenta.</li>
         </ul>
         <p>Entretanto, nenhum sistema de transmissão ou armazenamento de dados é completamente seguro, e não podemos garantir segurança absoluta.</p>
 
@@ -157,7 +166,7 @@
         </ul>
 
         <h2>10. Compras no Aplicativo</h2>
-        <p>O Aplicativo pode oferecer compras dentro do aplicativo (in-app purchases), incluindo itens virtuais como créditos de power-ups e remoção de anúncios. Todas as transações financeiras são processadas exclusivamente pela <strong>Google Play Store</strong>. A Empresa <strong>não tem acesso</strong> a dados financeiros dos usuários.</p>
+        <p>O Aplicativo pode oferecer compras dentro do aplicativo (in-app purchases), incluindo itens virtuais como créditos de power-ups e remoção de anúncios. Todas as transações financeiras são processadas pela <strong>Google Play Store</strong>. Para garantir a autenticidade e prevenir fraudes, os recibos são validados em tempo real pelo nosso backend hospedado no Brasil (Supabase, região São Paulo). Esta validação é técnica e não envolve dados pessoais identificáveis. A Empresa <strong>não tem acesso</strong> a dados financeiros dos usuários como cartão de crédito ou dados bancários.</p>
 
         <h2>11. Crianças e Adolescentes</h2>
         <p>O Aplicativo é classificado para <strong>todas as idades</strong>, porém não é direcionado especificamente a crianças menores de 13 anos. Não coletamos intencionalmente informações de crianças menores de 13 anos.</p>
